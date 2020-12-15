@@ -60,9 +60,9 @@
                             </td>
 
                             <td>
-                                <form action="/task/{{ $task->id }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
+                                <form action="/task/{{$task->id}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
 
                                     <button>刪除任務</button>
                                 </form>
