@@ -1,6 +1,6 @@
-// resources/views/tasks/index.blade.php
+<!--resources/views/tasks/index.blade.php-->
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 
