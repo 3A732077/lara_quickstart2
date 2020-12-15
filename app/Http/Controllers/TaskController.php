@@ -7,16 +7,19 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function  _construct()
+    public function  _construct($tasks)
     {
         $this->middleware('auth');
+
+        $this-> tasks= $tasks;
     }
 
     public function index(Request $request)
     {
-        $tasks = Task::where('user_id', $request->user()->id)->get();
+        $tasks = Task::where('user_id',$request->user()->id)->get();
+
         return view('tasks.index',[
-            'tasks'=>$tasks,
+            'tasks' => $tasks,
         ]);
     }
 
