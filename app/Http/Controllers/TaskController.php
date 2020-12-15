@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 
 use Illuminate\Http\Request;
 
@@ -16,6 +15,15 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         return view('tasks.index');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required|max:255',
+        ]);
+
+        //任務建立
     }
 
 }
