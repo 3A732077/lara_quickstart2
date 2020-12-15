@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function  _construct($tasks)
+    public function  _construct()
     {
         $this->middleware('auth');
 
-        $this-> tasks= $tasks;
     }
 
     public function index(Request $request)
@@ -35,6 +34,14 @@ class TaskController extends Controller
         ]);
 
         return redirect('/tasks');
+    }
+
+    public function  destory(Request $request,Task $task)
+    {
+        $this->authorize('destroy',$task);
+        $task->delete();
+        return redirect('/tasks');
+
     }
 
 }
